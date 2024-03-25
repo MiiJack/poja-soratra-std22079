@@ -23,10 +23,10 @@ public class TextController {
   }
 
   @GetMapping(value = "{id}")
-  public ResponseEntity<TextURL> getTextURL(@PathVariable(name = "id") String id) {
+  public ResponseEntity<?> getTextURL(@PathVariable(name = "id") String id) {
     try {
       TextURL textURL = service.getTextURL(id);
-      return ResponseEntity.ok(textURL);
+      return ResponseEntity.ok(textURL.toString());
     } catch (Exception e) {
       TextURL errorTextURL =
           TextURL.builder()
