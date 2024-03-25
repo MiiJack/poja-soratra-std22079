@@ -15,7 +15,7 @@ import org.hibernate.annotations.UpdateTimestamp;
 @Table(name = "text_information")
 public class TextInformation {
   @Id
-  @Column(name = "id", nullable = false)
+  @Column(name = "id")
   private String id;
 
   @Column(name = "text_bucket_key")
