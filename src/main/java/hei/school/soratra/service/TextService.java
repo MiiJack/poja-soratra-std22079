@@ -94,6 +94,10 @@ public class TextService {
       }
       scanner.close();
 
+      FileWriter writer = new FileWriter(outputFile);
+      writer.write(sb.toString());
+      writer.close();
+
     } catch (Exception e) {
       e.printStackTrace();
     }
