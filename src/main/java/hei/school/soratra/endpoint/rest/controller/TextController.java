@@ -20,4 +20,13 @@ public class TextController {
       return null;
     }
   }
+
+  @GetMapping(value = "{id}")
+  public TextURL getTextURL(@PathVariable(name = "id") String id) {
+    try {
+      return service.getTextURL(id);
+    } catch (Exception e) {
+      return null;
+    }
+  }
 }
