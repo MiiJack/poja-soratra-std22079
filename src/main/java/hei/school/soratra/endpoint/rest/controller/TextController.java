@@ -12,8 +12,7 @@ public class TextController {
   private final TextService service;
 
   @PutMapping(value = "{id}")
-  public TextURL putModifiedText(
-      @PathVariable(name = "id") String id, @RequestBody byte[] file) {
+  public TextURL putModifiedText(@PathVariable(name = "id") String id, @RequestBody byte[] file) {
     try {
       return service.uploadAndModifyText(id, file);
     } catch (Exception e) {
@@ -24,9 +23,9 @@ public class TextController {
   @GetMapping(value = "{id}")
   public TextURL getTextURL(@PathVariable(name = "id") String id) {
     try {
-        return service.getTextURL(id);
+      return service.getTextURL(id);
     } catch (Exception e) {
-        return null;
+      return null;
     }
   }
 }

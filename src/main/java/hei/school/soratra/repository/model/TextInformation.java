@@ -1,9 +1,7 @@
 package hei.school.soratra.repository.model;
 
 import jakarta.persistence.*;
-
 import java.sql.Timestamp;
-
 import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
