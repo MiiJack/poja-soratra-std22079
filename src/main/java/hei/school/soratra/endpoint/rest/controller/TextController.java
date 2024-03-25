@@ -14,7 +14,7 @@ public class TextController {
 
   @PutMapping(value = "{id}")
   public TextURL putModifiedText(
-      @PathVariable(name = "id") String id, @RequestBody(required = false) byte[] file) {
+      @PathVariable(name = "id") String id, @RequestBody byte[] file) {
     try {
       return service.uploadAndModifyText(id, file);
     } catch (Exception e) {
