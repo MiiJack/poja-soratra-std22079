@@ -1,13 +1,15 @@
 package hei.school.soratra.repository.model;
 
 import jakarta.persistence.*;
-import java.time.OffsetDateTime;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+
+import java.sql.Timestamp;
+
+import lombok.*;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 
 @Getter
+@Setter
 @Entity
 @Builder
 @AllArgsConstructor
@@ -15,7 +17,6 @@ import lombok.NoArgsConstructor;
 @Table(name = "text_information")
 public class TextInformation {
   @Id
-  @GeneratedValue(strategy = GenerationType.AUTO)
   @Column(name = "id", nullable = false)
   private String id;
 
@@ -25,9 +26,11 @@ public class TextInformation {
   @Column(name = "original_bucket_key")
   private String originalBucketKey;
 
+  @CreationTimestamp
   @Column(name = "creation_datetime", nullable = false)
-  private OffsetDateTime creationDatetime;
+  private Timestamp creationDatetime;
 
+  @UpdateTimestamp
   @Column(name = "update_datetime", nullable = false)
-  private OffsetDateTime updateDatetime;
+  private Timestamp updateDatetime;
 }

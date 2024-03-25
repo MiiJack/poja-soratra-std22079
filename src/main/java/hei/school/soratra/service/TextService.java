@@ -29,7 +29,7 @@ public class TextService {
     }
   }
 
-  @Transactional
+  @Transactional(readOnly = true)
   public TextURL uploadAndModifyText(String id, byte[] file) throws IOException {
     if (file == null) {
       throw new RemoteException("Text file is mandatory");
