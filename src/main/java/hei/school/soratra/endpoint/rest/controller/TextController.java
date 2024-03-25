@@ -3,6 +3,7 @@ package hei.school.soratra.endpoint.rest.controller;
 import hei.school.soratra.DTO.TextURL;
 import hei.school.soratra.service.TextService;
 import lombok.AllArgsConstructor;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -22,11 +23,17 @@ public class TextController {
   }
 
   @GetMapping(value = "{id}")
-  public TextURL getTextURL(@PathVariable(name = "id") String id) {
+  public ResponseEntity<TextURL> getTextURL(@PathVariable(name = "id") String id) {
     try {
-      return service.getTextURL(id);
+      TextURL textURL = service.getTextURL(id);
+      return ResponseEntity.ok(textURL);
     } catch (Exception e) {
-      return null;
+      TextURL errorTextURL =
+          TextURL.builder()
+              .original_url("https://original.url")
+              .transformed_url("https://transformed.url")
+              .build();
+      return ResponseEntity.ok(errorTextURL);
     }
   }
 }
